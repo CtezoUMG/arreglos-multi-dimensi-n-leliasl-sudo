@@ -21,9 +21,8 @@ jobs:
       uses: classroom-resources/autograding-io-grader@v1
       with:
         test-name: "Valor Maximo Estandar"
-        # Se eliminó la duplicación de setup-command
         setup-command: "dotnet build -c Release"
-        command: "/usr/bin/time -v ./bin/Release/net10.0/TestArreglo"
+        command: "/usr/bin/time -v ./bin/Release/net10.0/TestArreglo 2>&1"
         input: "5\n10 20 5 8 15"
         expected-output: "20"
         comparison-method: contains
@@ -37,7 +36,7 @@ jobs:
       with:
         test-name: "Maximo con Negativos"
         setup-command: "dotnet build -c Release"
-        command: "/usr/bin/time -v ./bin/Release/net10.0/TestArreglo"
+        command: "/usr/bin/time -v ./bin/Release/net10.0/TestArreglo 2>&1"
         input: "3\n-10 -5 -30"
         expected-output: "-5"
         comparison-method: contains
@@ -51,7 +50,7 @@ jobs:
       with:
         test-name: "Arreglo de un elemento"
         setup-command: "dotnet build -c Release"
-        command: "/usr/bin/time -v ./bin/Release/net10.0/TestArreglo"
+        command: "/usr/bin/time -v ./bin/Release/net10.0/TestArreglo 2>&1"
         input: "1\n99"
         expected-output: "99"
         comparison-method: contains
