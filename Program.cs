@@ -16,10 +16,26 @@ for (int i = 0; i < n; i++)
 
 // --- INICIO DE LÓGICA DEL ALUMNO ---
 
-        var parts = (lineNums ?? "").Split(new[] { ' ', '\t' }, StringSplitOptions.RemoveEmptyEntries);
-        if (parts.Length == 0) { Console.WriteLine(0); return; }
-        int max = parts.Take(n).Select(int.Parse).Max();
-        Console.WriteLine(max);
-        // --- FIN DE LÓGICA DEL ALUMNO ---
+        using System;
+
+class Program
+{
+    static void Main()
+    {
+        int n = int.Parse(Console.ReadLine());
+        int[] numeros = Array.ConvertAll(Console.ReadLine().Split(), int.Parse);
+
+        int maximo = numeros[0];
+
+        for (int i = 1; i < n; i++)
+        {
+            if (numeros[i] > maximo)
+            {
+                maximo = numeros[i];
+            }
+        }
+
+        Console.WriteLine(maximo);
     }
 }
+
