@@ -20,23 +20,31 @@ using System;
 
 class Program
 {
-
     static void Main()
     {
-        int n = int.Parse(Console.ReadLine());
-        int[] numeros = Array.ConvertAll(Console.ReadLine().Split(), int.Parse);
+        string? linea1 = Console.ReadLine();
+        if (string.IsNullOrWhiteSpace(linea1)) return;
 
-        int maximo = numeros[0];
+        int n = int.Parse(linea1);
 
-        for (int i = 1; i < n; i++)
+        string? linea2 = Console.ReadLine();
+        if (string.IsNullOrWhiteSpace(linea2)) return;
+
+        string[] entrada = linea2.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+
+        int maximo = int.Parse(entrada[0]);
+
+        for (int i = 1; i < n && i < entrada.Length; i++)
         {
-            if (numeros[i] > maximo)
+            int numero = int.Parse(entrada[i]);
+            if (numero > maximo)
             {
-                maximo = numeros[i];
+                maximo = numero;
             }
         }
 
         Console.WriteLine(maximo);
     }
 }
+
 
